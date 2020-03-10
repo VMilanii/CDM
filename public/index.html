@@ -23,6 +23,9 @@
         function renderMessage(message)
         {
             $('.messages').append('<div><strong>'+message.author+': </strong>'+message.message+'</div>');
+            $('.messages').animate({
+                scrollTop: $('.messages:visible:last').offset().top
+            }, 1000);
         }
 
         socket.on('receivedMessage', function(message)
@@ -47,6 +50,8 @@
 
                 socket.emit('sendMessage', messageObject);
             }
+
+            $('input[name=message]').val('');
         });
     </script>
 
