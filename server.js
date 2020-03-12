@@ -11,7 +11,11 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.use('/',(req, res) =>{
+<<<<<<< Updated upstream
     res.render('login');
+=======
+    res.render('login.html');
+>>>>>>> Stashed changes
 });
 
 let messages = [];
