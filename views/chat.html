@@ -19,6 +19,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
         var socket = io('https://chat-verbenas.herokuapp.com/');
+        
+        var windowTitle = 'Chat da Verbenas';
+        var window_focus = false;
+        setInterval(function() {
+            $(window).focus(function() {
+                window_focus = true;
+                document.title = windowTitle;
+            })
+            .blur(function() {
+                window_focus = false;
+            });
+        }, 500);
 
         function renderMessage(message)
         {
@@ -27,8 +39,11 @@
 
         socket.on('receivedMessage', function(message)
         {
-            console.log('caiu no socket');
             renderMessage(message);
+            if(!window_focus)
+            {
+                document.title = windowTitle + ' - Nova Mensagem';
+            }
         });
 
         $('#chat').submit(function(event){
