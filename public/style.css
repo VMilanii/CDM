@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 html, body {
-    font-family: Arial;
+    font-family: 'Roboto', sans-serif;
     height: 100%;
   }
   
@@ -7,6 +8,12 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  #title {
+    margin: 10px 0;
+    text-align: center;
+    color: #069;
   }
   
   #chat {
@@ -44,4 +51,11 @@ html, body {
     border: 1px solid #ddd;
     padding: 20px;
     overflow-y: auto;
+  }
+
+  footer {
+    padding: 10px 10px;
+    border:1px solid #eee;
+    text-align: center;
+    color: #069;
   }

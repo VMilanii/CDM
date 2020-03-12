@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat da Verbenas</title>
+    <title>CDM</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+    <h1 id="title">Bem-vindo ao CDM</h1>
     <form id="chat">
         <input type="text" name="username" placeholder="Digite seu Usuário" value="<%= name %>">
         <div class="messages"></div>
@@ -15,12 +16,16 @@
         <button type="submit">Enviar</button>
     </form>
 
+    <footer>
+        Feito por Lucas, Victor e Vinicius.
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
         var socket = io('https://chat-verbenas.herokuapp.com/');
         
-        var windowTitle = 'Chat da Verbenas';
+        var windowTitle = 'CDM';
         var window_focus = false;
         setInterval(function() {
             $(window).focus(function() {
@@ -61,6 +66,7 @@
                 };
 
                 socket.emit('sendMessage', messageObject);
+                $('input[name=message]').val('');
             }
         });
     </script>
