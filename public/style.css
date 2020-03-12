@@ -43,10 +43,5 @@ html, body {
     margin: 20px 0;
     border: 1px solid #ddd;
     padding: 20px;
-<<<<<<< HEAD
     overflow-y: auto;
-=======
-    overflow-y: scroll;
-    
->>>>>>> TelaLogin
   }
