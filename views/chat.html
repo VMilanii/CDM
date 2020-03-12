@@ -8,14 +8,15 @@
 
 </head>
 <body>
-    <h1 id="title">Bem-vindo ao CDM</h1>
-    <form id="chat">
-        <input type="text" name="username" placeholder="Digite seu Usuário" value="<%= name %>">
-        <div class="messages"></div>
-        <input type="text" name="message" placeholder="Digite sua mensagem">
-        <button type="submit">Enviar</button>
-    </form>
-
+    <div id="particles-js"> 
+        <h1 id="title">Bem-vindo ao CDM</h1>
+        <form id="chat">
+            <input type="text" name="username" placeholder="Digite seu Usuário" value="<%= name %>">
+            <div class="messages"></div>
+            <input type="text" name="message" placeholder="Digite sua mensagem">
+            <button type="submit">Enviar</button>
+        </form>
+    </div> 
     <footer>
         Feito por Lucas, Victor e Vinicius.
     </footer>
@@ -70,6 +71,8 @@
             }
         });
     </script>
+    <script type="text/javascript" src="../particles.js"></script>
+    <script type="text/javascript" src="../app.js"></script>
 
 </body>
 </html>

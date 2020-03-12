@@ -9,6 +9,13 @@ html, body {
     padding: 0;
     box-sizing: border-box;
   }
+  #particles-js{
+    height: 100vh;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center 0;
+    margin: 0 auto;
+  }
 
   #title {
     margin: 10px 0;
