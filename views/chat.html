@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
-    <div id="particles-js"> 
+    <canvas class="background">
+    </canvas>
+
+    <div style="z-index: 9999;">
         <h1 id="title">Bem-vindo ao CDM</h1>
         <form id="chat">
             <input type="text" name="username" placeholder="Digite seu Usuário" value="<%= name %>">
@@ -16,16 +20,18 @@
             <input type="text" name="message" placeholder="Digite sua mensagem">
             <button type="submit">Enviar</button>
         </form>
-    </div> 
     <footer>
         Feito por Lucas, Victor e Vinicius.
     </footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="particles.min.js"></script>
     <script type="text/javascript">
+
         var socket = io('https://chat-verbenas.herokuapp.com/');
-        
+
         var windowTitle = 'CDM';
         var window_focus = false;
         setInterval(function() {
@@ -38,6 +44,14 @@
             });
         }, 500);
 
+        window.onload = function() {
+            Particles.init({
+        selector: '.background'
+        });
+    }
+
+        
+    
         function renderMessage(message)
         {
             $('.messages').append('<div><strong>'+message.author+': </strong>'+message.message+'</div>');
@@ -71,8 +85,6 @@
             }
         });
     </script>
-    <script type="text/javascript" src="../particles.js"></script>
-    <script type="text/javascript" src="../app.js"></script>
 
 </body>
 </html>

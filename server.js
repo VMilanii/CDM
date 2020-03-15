@@ -1,6 +1,19 @@
 const express = require('express');
 const path = require('path');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://victor:Milani12@cluster0-ibnut.mongodb.net/chat?retryWrites=true&w=majority');
+
+const schema = new mongoose.Schema({
+
+    name: String,
+    email: String,
+    senha: String
+
+});
+
+const usuariosDB = mongoose.model('users', schema);
+
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
@@ -24,6 +37,29 @@ app.post('/chat', (req, res) => {
     res.render('chat', {
         name: name
     });
+});
+
+app.post('/cadastrar', async (req, res) => {
+    //TODO: PEGAR DADOS E JOGAR NA VARIAVEL
+    let nome = req.body.nome_cad;
+    let email = req.body.email_cad;
+    let senha = req.body.senha_cad;
+
+    //CHAMAR O MONGOOSE
+
+    let usuario = new usuariosDB({
+
+        name: nome,
+        email: email,
+        senha: senha
+
+    });
+
+    usuario = await usuario.save();
+    console.log(usuario);
+
+    res.render('login');
+
 });
 
 let messages = [];
