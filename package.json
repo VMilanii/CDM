@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.4",
     "particles.js": "^2.0.0",
     "particlesjs": "^2.2.3",
